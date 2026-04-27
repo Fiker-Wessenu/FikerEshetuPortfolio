@@ -155,5 +155,5 @@ export const CV_DATA = {
     linkedin: "https://linkedin.com/in/fiker-wessenu",
     github: "https://github.com/fikerwessenu"
   },
-  profileImage: "/public/profile.jpeg"
+  profileImage: "/profile.jpeg"
 };
