@@ -49,10 +49,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className="group relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+                className="group relative p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300"
               >
                 {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/10 blur-xl" />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/20 blur-xl" />
 
                 <div className="relative z-10 flex flex-col items-center text-center">
                   <div className="w-14 h-14 rounded-full bg-black border border-white/10 flex items-center justify-center mb-5 group-hover:scale-110 transition">
@@ -80,7 +80,7 @@ export default function About() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md"
+            className="p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md"
           >
             <h3 className="text-lg font-semibold text-red-400 mb-4">Core Skills</h3>
             <div className="space-y-3 text-sm">
@@ -98,7 +98,7 @@ export default function About() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md"
+            className="p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md"
           >
             <h3 className="text-lg font-semibold text-red-400 mb-4">Quick Facts</h3>
             <ul className="space-y-3 text-sm text-white/70">

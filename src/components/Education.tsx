@@ -54,12 +54,12 @@ export default function Education() {
 
                   {/* Card */}
                   <div
-                    className={`w-full md:w-[45%] group relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300 ${
+                    className={`w-full md:w-[45%] group relative p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300 ${
                       isLeft ? 'mr-auto' : 'ml-auto'
                     }`}
                   >
                     {/* Glow */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/10 blur-xl" />
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/20 blur-xl" />
 
                     <div className="relative z-10">
                       <h3 className="text-lg font-semibold text-white mb-1">

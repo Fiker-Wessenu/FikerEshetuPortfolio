@@ -1,11 +1,11 @@
 export const CV_DATA = {
   name: "Fiker Wessenu Eshetu",
-  title: "Software Developer | Data and AI Enthusiast",
+  title: "Software and Web Developer  | Data and AI Enthusiast",
   logoPath: "/logo2.PNG",
   cvLink: "/Complete2_CV_Fiker.pdf",
   
   summary: "A passionate Masters student with a strong foundation in web development and data science. Committed to continuous learning and building innovative solutions that solve real-world problems.",
-  about: "I’m a dedicated MSc Computer Science student passionate about building meaningful digital experiences. With a strong interest in software development and emerging technologies, I enjoy turning ideas into impactful solutions. Driven by curiosity, I continuously explore new tools and frameworks while thriving in collaborative environments that challenge me to grow and innovate.",
+  about: "I am a dedicated MSc Computer Science student passionate about building meaningful digital experiences. With a strong interest in software development and emerging technologies, I enjoy turning ideas into impactful solutions. Driven by curiosity, I continuously explore new tools and frameworks while thriving in collaborative environments that challenge me to grow and innovate.",
   highlights: [
     { icon: "Code", title: "Software Development", description: "Passionate about building robust and scalable applications." },
     { icon: "Database", title: "Data Science", description: "Exploring data-driven insights and machine learning." },
@@ -83,11 +83,11 @@ export const CV_DATA = {
     }
   ],
   certifications: [
-    { title: "SQL & Database Course: All-in-one course packed with hands-on exercises", link: "#" },
-    { title: "Java Programming: An in-depth understanding of modern java syntax, technology and terminology.", link: "#" },
-    { title: "Machine Learning Masterclass: A complete and intensive roadmap for Machine Learning practitioners", link: "#" },
-    { title: "Python & Django: Basics of Python fundamentals, programming, and user interaction in full-stack course", link: "#" },
-    { title: "20 Web Projects Course:  Creation of 20 captivating web projects using pure JavaScript, HTML5, and CSS3", link: "#" }
+    { title: "SQL & Database Course: All-in-one course packed with hands-on exercises  (UDEMY)", link: "#" },
+    { title: "Java Programming: An in-depth understanding of modern java syntax, technology and terminology  (UDEMY)", link: "#" },
+    { title: "Machine Learning Masterclass: A complete and intensive roadmap for Machine Learning practitioners (UDEMY)", link: "#" },
+    { title: "Python & Django: Basics of Python fundamentals, programming, and user interaction in full-stack course (UDEMY)", link: "#" },
+    { title: "20 Web Projects Course:  Creation of 20 captivating web projects using pure JavaScript, HTML5, and CSS3  (UDEMY)", link: "#" }
   ],
   awards: {
     layout: "Highlight cards or timeline with badges",

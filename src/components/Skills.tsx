@@ -69,10 +69,10 @@ export default function Skills() {
                   >
                     <div className="relative p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md
                       flex flex-col items-center justify-center text-center min-h-[148px]
-                      hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                      hover:bg-red-500/18 hover:-translate-y-1 transition-all duration-300 overflow-hidden border-red-500/35 bg-red-500/12">
 
                       {/* Glow effect */}
-                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/10 blur-xl" />
+                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/20 blur-xl" />
 
                       <div className="relative z-10 mb-3 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-red-300 font-semibold text-sm group-hover:border-red-400/40 group-hover:text-yellow-300 transition-colors duration-300">
                         {skill.slice(0, 2).toUpperCase()}

@@ -129,6 +129,28 @@ export default function Hero() {
             {CV_DATA.summary}
           </motion.p>
 
+          <motion.p
+            className="mt-6 text-sm sm:text-base font-medium text-red-400/90 flex flex-wrap gap-[1px]"
+          >
+            {'Available for work and collaboration'.split('').map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 10, rotate: -8 }}
+                animate={{ opacity: [0, 1, 1, 0], y: [10, 0, 0, 10], rotate: [-8, 0, 0, 8] }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  repeatDelay: 0.2,
+                  delay: i * 0.04,
+                  ease: 'easeInOut'
+                }}
+                className="inline-block"
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </motion.span>
+            ))}
+          </motion.p>
+
         </div>
 
       </div>
