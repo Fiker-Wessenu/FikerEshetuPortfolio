@@ -2,7 +2,7 @@ export const CV_DATA = {
   name: "Fiker Wessenu Eshetu",
   title: "Software and Web Developer  | Data and AI Enthusiast",
   logoPath: "/logo2.PNG",
-  cvLink: "/Complete2_CV_Fiker.pdf",
+  cvLink: "/cv.pdf",
   
   summary: "A passionate Masters student with a strong foundation in web development and data science. Committed to continuous learning and building innovative solutions that solve real-world problems.",
   about: "I am a dedicated MSc Computer Science student passionate about building meaningful digital experiences. With a strong interest in software development and emerging technologies, I enjoy turning ideas into impactful solutions. Driven by curiosity, I continuously explore new tools and frameworks while thriving in collaborative environments that challenge me to grow and innovate.",
@@ -155,5 +155,5 @@ export const CV_DATA = {
     linkedin: "https://linkedin.com/in/fiker-wessenu",
     github: "https://github.com/fikerwessenu"
   },
-  profileImage: "/public/profile.jpeg"
+  profileImage: "/profile.jpeg"
 };

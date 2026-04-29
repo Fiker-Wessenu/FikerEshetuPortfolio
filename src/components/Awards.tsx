@@ -41,7 +41,7 @@ export default function Awards() {
   ];
 
   return (
-    <section className="relative py-32 text-white overflow-hidden">
+    <section id="awards" className="relative py-32 text-white overflow-hidden">
 
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 

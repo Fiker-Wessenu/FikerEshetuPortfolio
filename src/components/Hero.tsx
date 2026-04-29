@@ -28,7 +28,7 @@ export default function Hero() {
                 }
               }
             }}
-            className="mt-6 text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight whitespace-nowrap
+            className="mt-16 lg:-ml-4 text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight whitespace-nowrap
             bg-gradient-to-r from-white via-red-400 to-red-600 bg-clip-text text-transparent
             drop-shadow-[0_0_25px_rgba(255,0,0,0.6)] animate-[pulse_2s_ease-in-out_infinite] flex whitespace-nowrap justify-center lg:justify-start gap-[2px]"
           >
@@ -102,7 +102,7 @@ export default function Hero() {
                 }
               }
             }}
-            className="text-xl sm:text-2xl md:text-3xl font-serif italic text-white/80 flex flex-wrap gap-1"
+            className="mt-8 text-xl sm:text-2xl md:text-3xl font-serif italic text-white/80 flex flex-wrap gap-1"
           >
             {CV_DATA.title.split('').map((char, i) => (
               <motion.span
@@ -124,7 +124,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-6 text-base sm:text-lg text-white/70 leading-relaxed"
+            className="mt-10 text-base sm:text-lg text-white/70 leading-relaxed"
           >
             {CV_DATA.summary}
           </motion.p>
