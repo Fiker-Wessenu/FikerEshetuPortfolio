@@ -102,13 +102,14 @@ export default function Navbar() {
       </div>
 
       {/* MOBILE MENU */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] md:hidden bg-black/95 backdrop-blur-xl overflow-x-hidden"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-50 md:hidden bg-black/95 backdrop-blur-xl overflow-x-hidden"
           >
             <div className="h-[100dvh] overflow-y-auto overscroll-contain px-6 pt-24 pb-10">
               <button
