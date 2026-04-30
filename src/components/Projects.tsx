@@ -5,13 +5,13 @@ import { CV_DATA } from '../constants';
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-fx relative py-32 bg-black text-white overflow-hidden">
+    <section id="projects" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -23,14 +23,14 @@ export default function Projects() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-5xl font-bold text-white"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold text-white"
           >
             Selected Works
           </motion.h2>
         </div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           {CV_DATA.projects.map((project, index) => (
             <motion.div
               key={index}
@@ -40,7 +40,7 @@ export default function Projects() {
               className="group"
             >
               {/* IMAGE */}
-              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-6 border border-white/10">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-5 sm:mb-6 border border-white/10">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -63,7 +63,7 @@ export default function Projects() {
               </div>
 
               {/* CONTENT */}
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-6">
                 <div>
                   <span className="text-xs text-red-400">
                     {String(index + 1).padStart(2, "0")}
@@ -93,7 +93,7 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full border border-white/10 hover:bg-white hover:text-black transition"
+                      className="self-start p-2 rounded-full border border-white/10 hover:bg-white hover:text-black transition"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>

@@ -4,14 +4,14 @@ import { CV_DATA } from '../constants';
 
 export default function Education() {
   return (
-    <section id="education" className="section-fx relative py-32 bg-black text-white overflow-hidden">
+    <section id="education" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -25,7 +25,7 @@ export default function Education() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-bold text-white"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold text-white"
           >
             Education
           </motion.h2>
@@ -34,9 +34,9 @@ export default function Education() {
         {/* TIMELINE */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-1/2 top-0 h-full w-[2px] bg-white/10 -translate-x-1/2" />
+          <div className="absolute left-4 sm:left-1/2 top-0 h-full w-[2px] bg-white/10 sm:-translate-x-1/2" />
 
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             {CV_DATA.education.map((edu, index) => {
               const isLeft = index % 2 === 0;
 
@@ -50,11 +50,11 @@ export default function Education() {
                   className={`relative flex w-full ${isLeft ? 'justify-start' : 'justify-end'}`}
                 >
                   {/* Node */}
-                  <div className="absolute left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-red-500 shadow-[0_0_15px_rgba(255,0,0,0.7)] z-20" />
+                  <div className="absolute left-4 sm:left-1/2 top-6 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-red-500 shadow-[0_0_15px_rgba(255,0,0,0.7)] z-20" />
 
                   {/* Card */}
                   <div
-                    className={`w-full md:w-[45%] group relative p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300 ${
+                    className={`w-full sm:w-[92%] md:w-[45%] group relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300 ${
                       isLeft ? 'mr-auto' : 'ml-auto'
                     }`}
                   >

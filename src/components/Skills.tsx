@@ -5,14 +5,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../components/ui/ta
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-fx relative py-32 bg-black text-white overflow-hidden">
+    <section id="skills" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -26,7 +26,7 @@ export default function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-bold text-white"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold text-white"
           >
             My Skills
           </motion.h2>
@@ -36,13 +36,13 @@ export default function Skills() {
         <Tabs defaultValue="programming" className="w-full max-w-5xl mx-auto">
 
           {/* TAB LIST */}
-          <div className="flex justify-center mb-16 overflow-x-auto no-scrollbar">
-            <TabsList className="bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-2 flex gap-2 shadow-lg shadow-black/20">
+          <div className="flex justify-center mb-10 sm:mb-16 overflow-x-auto no-scrollbar">
+            <TabsList className="bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1.5 flex flex-wrap justify-center gap-2 shadow-lg shadow-black/20">
               {Object.keys(CV_DATA.skills).map((category) => (
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="rounded-full px-6 py-2 text-xs font-semibold uppercase tracking-wider
+                  className="rounded-full px-4 sm:px-6 py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider
                   text-white/60 hover:text-white hover:bg-white/10
                   data-[state=active]:bg-red-500 data-[state=active]:text-white 
                   transition-all duration-300"
@@ -56,7 +56,7 @@ export default function Skills() {
           {/* TAB CONTENT */}
           {Object.entries(CV_DATA.skills).map(([category, skills]) => (
             <TabsContent key={category} value={category}>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
 
                 {skills.map((skill, index) => (
                   <motion.div

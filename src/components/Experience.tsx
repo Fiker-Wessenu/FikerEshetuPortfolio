@@ -5,14 +5,14 @@ import { CV_DATA } from '../constants';
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-fx relative py-32 bg-black text-white overflow-hidden">
+    <section id="experience" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -24,7 +24,7 @@ export default function Experience() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-5xl font-bold text-white"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold text-white"
           >
             Work Experience
           </motion.h2>
@@ -36,7 +36,7 @@ export default function Experience() {
           {/* Vertical line */}
           <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-[2px] h-full bg-white/10" />
 
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             {CV_DATA.experience.map((exp, index) => (
               <motion.div
                 key={exp.role}
@@ -58,7 +58,7 @@ export default function Experience() {
                 {/* CARD */}
                 <div className="w-full sm:w-[45%] ml-12 sm:ml-0">
 
-                  <div className="relative p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md 
+                  <div className="relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md 
                     hover:bg-red-500/18 transition-all duration-300 group">
 
                     {/* Glow */}

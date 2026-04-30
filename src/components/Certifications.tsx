@@ -15,7 +15,7 @@ export default function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="section-fx relative py-32 bg-black text-white overflow-hidden">
+    <section id="certifications" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
@@ -32,10 +32,10 @@ export default function Certifications() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function Certifications() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-bold"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold"
           >
             Certifications
           </motion.h2>
@@ -58,7 +58,7 @@ export default function Certifications() {
         {/* HORIZONTAL SCROLL */}
         <div className="overflow-x-auto no-scrollbar">
           <motion.div
-            className="flex gap-8 px-2 cursor-grab active:cursor-grabbing"
+            className="flex gap-4 sm:gap-8 px-2 pb-2 cursor-grab active:cursor-grabbing"
             drag="x"
             dragConstraints={{ left: -1000, right: 0 }}
           >
@@ -68,7 +68,7 @@ export default function Certifications() {
               return (
                 <motion.div
                   key={cert.title}
-                  className="min-w-[280px] sm:min-w-[320px]"
+                  className="min-w-[240px] sm:min-w-[320px]"
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{
                     opacity: 1,
@@ -94,7 +94,7 @@ export default function Certifications() {
                       ease: "linear"
                     }}
 
-                    className={`relative flex flex-col h-full p-8 rounded-2xl border border-white/10
+                    className={`relative flex flex-col h-full p-6 sm:p-8 rounded-2xl border border-white/10
                     bg-gradient-to-br ${gradient}
                     backdrop-blur-xl
                     shadow-lg shadow-red-500/10

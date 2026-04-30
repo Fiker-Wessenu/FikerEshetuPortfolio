@@ -41,19 +41,19 @@ export default function Awards() {
   ];
 
   return (
-    <section id="awards" className="relative py-32 text-white overflow-hidden">
+    <section id="awards" className="relative py-20 sm:py-24 lg:py-32 text-white overflow-hidden">
 
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
       <div className="absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.14),transparent_36%),radial-gradient(circle_at_bottom_left,rgba(239,68,68,0.1),transparent_34%)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 sm:mb-20">
           <span className="text-sm uppercase tracking-[0.3em] text-rose-300">
             Achievements
           </span>
-          <h2 className="text-4xl font-bold mt-4">Awards</h2>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-4">Awards</h2>
         </div>
 
         {/* FEATURED */}
@@ -62,7 +62,7 @@ export default function Awards() {
             onMouseEnter={burstConfetti}
             whileHover={{ y: -8, scale: 1.01 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="relative mb-14 rounded-3xl border border-white/15 bg-gradient-to-br from-rose-500/15 via-orange-500/10 to-amber-500/15 backdrop-blur-md p-10 shadow-[0_0_40px_rgba(244,63,94,0.12)]"
+            className="relative mb-12 sm:mb-14 rounded-3xl border border-white/15 bg-gradient-to-br from-rose-500/15 via-orange-500/10 to-amber-500/15 backdrop-blur-md p-6 sm:p-10 shadow-[0_0_40px_rgba(244,63,94,0.12)]"
           >
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
               {confetti.map((c) => (
@@ -92,7 +92,7 @@ export default function Awards() {
         )}
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
           {others.map((item, index) => {
             const Icon = iconForAward(item.title);
             const gradient = cardColors[index % cardColors.length];
@@ -102,7 +102,7 @@ export default function Awards() {
                 key={item.title}
                 whileHover={{ y: -10, scale: 1.03, rotateX: 4, rotateY: -4 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="group relative rounded-2xl border border-white/15 backdrop-blur-md p-7 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.04)]"
+                className="group relative rounded-2xl border border-white/15 backdrop-blur-md p-5 sm:p-7 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.04)]"
               >
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-70`}

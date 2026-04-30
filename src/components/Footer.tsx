@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative py-16 sm:py-20 bg-black text-white overflow-hidden border-t border-white/10">
+    <footer className="relative py-14 sm:py-20 bg-black text-white overflow-hidden border-t border-white/10">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
@@ -40,7 +40,7 @@ export default function Footer() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center mb-10 sm:mb-16">
           {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -60,7 +60,7 @@ export default function Footer() {
                   }
                 }
               }}
-              className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4"
+              className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4"
             >
               {CV_DATA.name.split('').map((char, i) => (
                 <motion.span

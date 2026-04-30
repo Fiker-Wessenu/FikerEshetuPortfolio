@@ -115,7 +115,7 @@ export default function Contact() {
                   }
                 }
               }}
-              className="text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight"
+              className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
             >
               {("Let's Work " ).split('').map((char, i) => (
                 <motion.span
@@ -157,7 +157,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="text-base sm:text-lg text-white/70 mb-10 sm:mb-12 max-w-md leading-relaxed"
+              className="text-base sm:text-lg text-white/70 mb-8 sm:mb-12 max-w-md leading-relaxed"
             >
               I'm currently available for freelance work and full-time positions. If you have a project in mind, let's collaborate.
             </motion.p>
@@ -214,12 +214,12 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative p-6 sm:p-8 lg:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+            className="relative p-5 sm:p-8 lg:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
           >
             {/* Glow effect */}
             <div className="absolute inset-0 rounded-3xl opacity-0 hover:opacity-100 transition duration-500 bg-red-500/5 blur-xl" />
 
-            <form ref={formRef} onSubmit={handleSubmit} className="relative z-10 space-y-6 sm:space-y-7">
+            <form ref={formRef} onSubmit={handleSubmit} className="relative z-10 space-y-5 sm:space-y-7">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
