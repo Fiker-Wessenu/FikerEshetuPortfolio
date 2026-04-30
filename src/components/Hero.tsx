@@ -21,7 +21,7 @@ export default function Hero() {
             initial={{ width: 0 }}
             animate={{ width: '100%' }}
             transition={{ duration: 2 }}
-            className="mt-3 overflow-hidden whitespace-nowrap border-r-2 border-red-500 text-[clamp(1.8rem,4.4vw,3.4rem)] font-extrabold tracking-tight leading-[1] bg-gradient-to-r from-white via-red-400 to-red-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,0,0,0.6)] inline-block"
+            className="mt-6 sm:mt-3 overflow-hidden whitespace-nowrap border-r-2 border-red-500 text-[clamp(1.8rem,4.4vw,3.4rem)] font-extrabold tracking-tight leading-[1] bg-gradient-to-r from-white via-red-400 to-red-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,0,0,0.6)] inline-block"
           >
             {CV_DATA.name}
           </motion.h1>

@@ -5,14 +5,14 @@ import { CV_DATA } from '../constants';
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
+    <section id="experience" className="section-fx relative py-16 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-20">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -24,7 +24,7 @@ export default function Experience() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-2xl sm:text-4xl md:text-5xl font-bold text-white"
+            className="text-[1.65rem] sm:text-4xl md:text-5xl font-bold text-white"
           >
             Work Experience
           </motion.h2>
@@ -34,9 +34,9 @@ export default function Experience() {
         <div className="relative max-w-5xl mx-auto">
 
           {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-[2px] h-full bg-white/10" />
+          <div className="absolute left-3 md:left-1/2 transform md:-translate-x-1/2 w-[2px] h-full bg-white/10" />
 
-          <div className="space-y-12 sm:space-y-16">
+          <div className="space-y-10 sm:space-y-16">
             {CV_DATA.experience.map((exp, index) => (
               <motion.div
                 key={exp.role}
@@ -49,16 +49,16 @@ export default function Experience() {
               >
 
                 {/* ICON */}
-                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 
-                  w-10 h-10 rounded-full bg-black border border-white/10 
+                <div className="absolute left-3 md:left-1/2 transform md:-translate-x-1/2 
+                  w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black border border-white/10 
                   flex items-center justify-center z-20">
-                  <Briefcase className="w-4 h-4 text-red-400" />
+                  <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-400" />
                 </div>
 
                 {/* CARD */}
-                <div className="w-full md:w-[45%] ml-12 md:ml-0">
+                <div className="w-full md:w-[45%] ml-10 sm:ml-12 md:ml-0">
 
-                  <div className="relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md 
+                  <div className="relative p-4 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md 
                     hover:bg-red-500/18 transition-all duration-300 group">
 
                     {/* Glow */}
@@ -70,7 +70,7 @@ export default function Experience() {
                         {exp.period}
                       </span>
 
-                      <h3 className="text-lg sm:text-xl font-semibold text-white mt-1">
+                      <h3 className="text-base sm:text-xl font-semibold text-white mt-1">
                         {exp.role}
                       </h3>
 
