@@ -101,42 +101,36 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE MENU: always mounted, visibility toggled via opacity & pointer-events */}
+      {/* ✅ FIXED MOBILE MENU */}
       <motion.div
-        aria-hidden={!isOpen}
         initial={false}
-        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-0 md:hidden bg-black/95 backdrop-blur-xl overflow-x-hidden transition-opacity duration-200 ${
-          isOpen ? 'opacity-100 pointer-events-auto z-50' : 'opacity-0 pointer-events-none z-50'
-        }`}
+        animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        className={`fixed inset-0 z-50 md:hidden bg-black/95 backdrop-blur-xl
+        ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
       >
-        <div className="h-[100dvh] overflow-y-auto overscroll-contain px-6 pt-24 pb-10">
+        <div className="h-full flex flex-col items-center justify-center px-6 space-y-6 overflow-y-auto">
+
+          {/* CLOSE BUTTON */}
           <button
-            aria-label="Close mobile menu"
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center active:scale-95 transition"
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center"
           >
             <X className="h-5 w-5" />
           </button>
 
-          <nav className="min-h-full flex flex-col items-center justify-center">
-            <div className="w-full max-w-xs flex flex-col items-center gap-4">
-              {navItems.map((item, i) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  initial={false}
-                  animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-                  transition={{ delay: isOpen ? i * 0.05 : 0 }}
-                  className="w-full text-center text-lg font-semibold text-white py-4 px-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-red-500/15 hover:text-red-300 transition"
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-            </div>
-          </nav>
+          {/* MENU ITEMS */}
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="w-full max-w-xs text-center text-lg font-semibold text-white py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-red-500/20 transition"
+            >
+              {item.name}
+            </a>
+          ))}
+
         </div>
       </motion.div>
     </nav>
