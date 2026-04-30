@@ -6,15 +6,15 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="section-fx relative h-screen flex items-center justify-center overflow-hidden bg-black text-white"
+      className="section-fx relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black text-white py-20 sm:py-28 lg:py-32"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
-      <div className="relative z-10 max-w-7xl w-full px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative z-10 max-w-7xl w-full px-4 sm:px-6 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10 lg:gap-16">
 
         {/* LEFT SIDE */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl w-full">
 
           {/* NAME WITH PECULIAR ANIMATION */}
           <motion.h1
@@ -28,9 +28,9 @@ export default function Hero() {
                 }
               }
             }}
-            className="mt-16 lg:-ml-4 text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight whitespace-nowrap
+            className="mt-2 sm:mt-8 lg:mt-8 lg:-ml-4 text-[clamp(1.9rem,4.7vw,4.2rem)] font-extrabold tracking-tight leading-[0.95]
             bg-gradient-to-r from-white via-red-400 to-red-600 bg-clip-text text-transparent
-            drop-shadow-[0_0_25px_rgba(255,0,0,0.6)] animate-[pulse_2s_ease-in-out_infinite] flex whitespace-nowrap justify-center lg:justify-start gap-[2px]"
+            drop-shadow-[0_0_25px_rgba(255,0,0,0.6)] animate-[pulse_2s_ease-in-out_infinite] flex flex-wrap justify-center lg:justify-start gap-[2px]"
           >
             {CV_DATA.name.split('').map((char, i) => (
               <motion.span
@@ -52,9 +52,9 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.7 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-8 lg:ml-6"
+            className="mt-6 sm:mt-8 lg:mt-4 lg:ml-6"
           >
-            <div className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-red-500 shadow-[0_0_60px_rgba(255,0,0,0.6)]">
+            <div className="w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-red-500 shadow-[0_0_60px_rgba(255,0,0,0.6)]">
               <img
                 src={CV_DATA.profileImage}
                 alt={CV_DATA.name}
@@ -68,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3 lg:ml-6"
+            className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 lg:mt-4 lg:ml-6"
           >
             <a
               href="#contact"
@@ -102,7 +102,7 @@ export default function Hero() {
                 }
               }
             }}
-            className="mt-8 text-xl sm:text-2xl md:text-3xl font-serif italic text-white/80 flex flex-wrap gap-1"
+            className="mt-4 sm:mt-6 lg:mt-4 text-lg sm:text-2xl md:text-3xl font-serif italic text-white/80 flex flex-wrap gap-1 justify-center lg:justify-start"
           >
             {CV_DATA.title.split('').map((char, i) => (
               <motion.span
@@ -124,13 +124,13 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-10 text-base sm:text-lg text-white/70 leading-relaxed"
+            className="mt-6 sm:mt-8 lg:mt-6 text-base sm:text-lg text-white/70 leading-relaxed max-w-xl"
           >
             {CV_DATA.summary}
           </motion.p>
 
           <motion.p
-            className="mt-6 text-sm sm:text-base font-medium text-red-400/90 flex flex-wrap gap-[1px]"
+            className="mt-3 sm:mt-4 lg:mt-3 text-sm sm:text-base font-medium text-red-400/90 flex flex-wrap gap-[1px] justify-center lg:justify-start"
           >
             {'Available for work and collaboration'.split('').map((char, i) => (
               <motion.span

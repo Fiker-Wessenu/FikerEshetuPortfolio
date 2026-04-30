@@ -40,7 +40,7 @@ function SectionTransition({ children, delay = 0 }: SectionTransitionProps) {
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-black text-white transition-colors duration-300">
+      <div className="min-h-screen overflow-x-hidden bg-black text-white transition-colors duration-300">
         <Navbar />
         <main>
           <SectionTransition>

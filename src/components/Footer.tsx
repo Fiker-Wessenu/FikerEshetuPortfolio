@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative py-24 bg-black text-white overflow-hidden border-t border-white/10">
+    <footer className="relative py-16 sm:py-20 bg-black text-white overflow-hidden border-t border-white/10">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
@@ -39,8 +39,8 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 sm:mb-16">
           {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -83,7 +83,7 @@ export default function Footer() {
               transition={{ delay: 0.3 }}
               className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-6"
             >
-              � {new Date().getFullYear()} � All Rights Reserved
+              (c) {new Date().getFullYear()} All Rights Reserved
             </motion.p>
             
             <motion.div
@@ -101,11 +101,11 @@ export default function Footer() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col md:items-end space-y-8"
+            className="flex flex-col md:items-end space-y-6 sm:space-y-8"
           >
             {/* Social Links */}
             <motion.div 
-              className="flex space-x-8"
+              className="flex flex-wrap justify-center md:justify-end gap-6 sm:gap-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -140,7 +140,7 @@ export default function Footer() {
             
             {/* Links and Back to Top */}
             <motion.div 
-              className="flex flex-col md:flex-row items-center md:items-end space-y-4 md:space-y-0 md:space-x-8"
+              className="flex flex-col md:flex-row items-center md:items-end gap-4 md:gap-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

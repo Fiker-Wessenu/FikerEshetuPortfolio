@@ -41,7 +41,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-3 sm:gap-4">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -74,6 +74,7 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
+              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
               className="rounded-full hover:bg-black/5 dark:hover:bg-white/5"
             >
               {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
@@ -82,6 +83,7 @@ export default function Navbar() {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               className="lg:hidden w-11 h-11 rounded-full bg-white dark:bg-zinc-900 border border-black/5 dark:border-white/10 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -97,10 +99,10 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-white dark:bg-black z-40 flex flex-col items-center justify-center"
+            className="fixed inset-0 bg-white/95 dark:bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center overflow-y-auto px-6 py-24"
           >
-            <div className="absolute top-8 right-10">
-               <Button
+            <div className="absolute top-6 right-6 sm:top-8 sm:right-10">
+              <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(false)}
@@ -110,7 +112,7 @@ export default function Navbar() {
               </Button>
             </div>
             
-            <div className="space-y-8 text-center">
+            <div className="space-y-6 sm:space-y-8 text-center max-w-md w-full">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -119,7 +121,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setIsOpen(false)}
-                  className="block text-4xl sm:text-6xl font-bold text-emerald-900 dark:text-emerald-300 hover:font-serif hover:italic transition-all duration-300"
+                  className="block text-3xl sm:text-5xl font-bold text-emerald-900 dark:text-emerald-300 hover:font-serif hover:italic transition-all duration-300 break-words"
                 >
                   {item.name}
                 </motion.a>

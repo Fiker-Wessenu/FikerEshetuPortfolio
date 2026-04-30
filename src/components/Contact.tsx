@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-fx relative py-32 bg-black text-white overflow-hidden">
+    <section id="contact" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
@@ -63,8 +63,8 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -76,7 +76,6 @@ export default function Contact() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
               animate={{
                 opacity: [0.6, 1, 0.6],
                 textShadow: [
@@ -86,6 +85,7 @@ export default function Contact() {
                 ]
               }}
               transition={{
+                delay: 0.1,
                 opacity: {
                   duration: 3,
                   repeat: Infinity,
@@ -115,7 +115,7 @@ export default function Contact() {
                   }
                 }
               }}
-              className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight"
+              className="text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight"
             >
               {("Let's Work " ).split('').map((char, i) => (
                 <motion.span
@@ -157,7 +157,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="text-lg text-white/70 mb-12 max-w-md leading-relaxed"
+              className="text-base sm:text-lg text-white/70 mb-10 sm:mb-12 max-w-md leading-relaxed"
             >
               I'm currently available for freelance work and full-time positions. If you have a project in mind, let's collaborate.
             </motion.p>
@@ -169,7 +169,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="flex items-center space-x-4 group"
+                className="flex items-start sm:items-center space-x-4 group"
               >
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 10 }}
@@ -190,7 +190,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center space-x-4 group"
+                className="flex items-start sm:items-center space-x-4 group"
               >
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: -10 }}
@@ -214,12 +214,12 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative p-10 sm:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+            className="relative p-6 sm:p-8 lg:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
           >
             {/* Glow effect */}
             <div className="absolute inset-0 rounded-3xl opacity-0 hover:opacity-100 transition duration-500 bg-red-500/5 blur-xl" />
 
-            <form ref={formRef} onSubmit={handleSubmit} className="relative z-10 space-y-7">
+            <form ref={formRef} onSubmit={handleSubmit} className="relative z-10 space-y-6 sm:space-y-7">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
