@@ -4,14 +4,17 @@ import { CV_DATA } from '../constants';
 
 export default function Education() {
   return (
-    <section id="education" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
+    <section
+      id="education"
+      className="relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-
+        
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -25,7 +28,7 @@ export default function Education() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-4xl md:text-5xl font-bold text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold"
           >
             Education
           </motion.h2>
@@ -33,6 +36,7 @@ export default function Education() {
 
         {/* TIMELINE */}
         <div className="relative">
+          
           {/* Vertical line */}
           <div className="absolute left-4 md:left-1/2 top-0 h-full w-[2px] bg-white/10 md:-translate-x-1/2" />
 
@@ -47,16 +51,18 @@ export default function Education() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15 }}
-                  className={`relative flex w-full ${isLeft ? 'justify-start' : 'justify-end'}`}
+                  className={`relative flex w-full ${
+                    isLeft ? 'md:justify-start' : 'md:justify-end'
+                  } justify-start`}
                 >
                   {/* Node */}
                   <div className="absolute left-4 md:left-1/2 top-6 md:-translate-x-1/2 w-4 h-4 rounded-full bg-red-500 shadow-[0_0_15px_rgba(255,0,0,0.7)] z-20" />
 
                   {/* Card */}
                   <div
-                    className={`w-full md:w-[45%] group relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300 ${
-                      isLeft ? 'mr-auto' : 'ml-auto'
-                    }`}
+                    className={`w-full md:w-[45%] max-w-md group relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300 ${
+                      isLeft ? 'md:mr-auto' : 'md:ml-auto'
+                    } ml-12 md:ml-0`}
                   >
                     {/* Glow */}
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/20 blur-xl" />

@@ -1,6 +1,6 @@
 export const CV_DATA = {
   name: "Fiker Wessenu Eshetu",
-  title: "Software and Web Developer  | Data and AI Enthusiast",
+  title: "Software Developer  | Data and AI Enthusiast",
   logoPath: "/logo2.PNG",
   cvLink: "/cv.pdf",
   
