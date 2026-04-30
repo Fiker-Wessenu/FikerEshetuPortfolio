@@ -104,43 +104,40 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-40 md:hidden">
-            
-            {/* BACKDROP */}
-            <motion.button
-              aria-label="Close mobile menu"
-              onClick={() => setIsOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] md:hidden bg-black/95 backdrop-blur-xl overflow-x-hidden"
+          >
+            <div className="h-[100dvh] overflow-y-auto overscroll-contain px-6 pt-24 pb-10">
+              <button
+                aria-label="Close mobile menu"
+                onClick={() => setIsOpen(false)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center active:scale-95 transition"
+              >
+                <X className="h-5 w-5" />
+              </button>
 
-            {/* SIDE PANEL */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 320, damping: 30 }}
-              className="absolute inset-y-0 right-0 w-[85vw] max-w-sm bg-white dark:bg-zinc-950 shadow-2xl border-l border-black/10 dark:border-white/10 flex flex-col px-5 pt-20 pb-8"
-            >
-              <div className="flex flex-col gap-3">
-                {navItems.map((item, i) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    initial={{ opacity: 0, x: 24 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    className="text-base font-semibold text-emerald-900 dark:text-emerald-200 py-3 px-3 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-red-500/10 hover:text-red-500 transition"
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+              <nav className="min-h-full flex flex-col items-center justify-center">
+                <div className="w-full max-w-xs flex flex-col items-center gap-4">
+                  {navItems.map((item, i) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                      className="w-full text-center text-lg font-semibold text-emerald-100 py-4 px-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-red-500/15 hover:text-red-300 transition"
+                    >
+                      {item.name}
+                    </motion.a>
+                  ))}
+                </div>
+              </nav>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </nav>
