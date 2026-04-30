@@ -54,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 sm:mt-8 md:mt-4 md:ml-6"
           >
-            <div className="w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-red-500 shadow-[0_0_60px_rgba(255,0,0,0.6)]">
+            <div className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-red-500 shadow-[0_0_60px_rgba(255,0,0,0.6)]">
               <img
                 src={CV_DATA.profileImage}
                 alt={CV_DATA.name}
@@ -72,7 +72,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white text-sm font-medium transition-all duration-300 hover:scale-105 shadow-md shadow-red-900/30"
+              className="w-full sm:w-auto min-h-11 px-5 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white text-sm font-medium text-center transition-all duration-300 hover:scale-105 shadow-md shadow-red-900/30"
             >
               Contact Me
             </a>
@@ -80,7 +80,7 @@ export default function Hero() {
             <a
               href={CV_DATA.cvLink}
               download="Complete2_CV_Fiker.pdf"
-              className="px-4 py-2 rounded-full border border-white/30 hover:border-red-400 hover:text-red-400 text-white text-sm font-medium transition-all duration-300 hover:scale-105"
+              className="w-full sm:w-auto min-h-11 px-5 py-3 rounded-full border border-white/30 hover:border-red-400 hover:text-red-400 text-white text-sm font-medium text-center transition-all duration-300 hover:scale-105"
             >
               📥 Download CV
             </a>
