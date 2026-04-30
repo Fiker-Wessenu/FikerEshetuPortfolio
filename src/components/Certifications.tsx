@@ -15,7 +15,7 @@ export default function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
+    <section id="certifications" className="section-fx relative py-16 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
       
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
@@ -35,7 +35,7 @@ export default function Certifications() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function Certifications() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-2xl sm:text-4xl md:text-5xl font-bold"
+            className="text-[1.65rem] sm:text-4xl md:text-5xl font-bold"
           >
             Certifications
           </motion.h2>
@@ -58,7 +58,7 @@ export default function Certifications() {
         {/* HORIZONTAL SCROLL */}
         <div className="overflow-x-hidden md:overflow-x-auto no-scrollbar">
           <motion.div
-            className="flex flex-col md:flex-row gap-4 sm:gap-8 px-2 pb-2 md:cursor-grab md:active:cursor-grabbing"
+            className="flex flex-col md:flex-row gap-3 sm:gap-8 px-1 sm:px-2 pb-1 sm:pb-2 md:cursor-grab md:active:cursor-grabbing"
             drag="x"
             dragConstraints={{ left: -1000, right: 0 }}
           >
@@ -94,7 +94,7 @@ export default function Certifications() {
                       ease: "linear"
                     }}
 
-                    className={`relative flex flex-col h-full p-6 sm:p-8 rounded-2xl border border-white/10
+                    className={`relative flex flex-col h-full p-5 sm:p-8 rounded-2xl border border-white/10
                     bg-gradient-to-br ${gradient}
                     backdrop-blur-xl
                     shadow-lg shadow-red-500/10
@@ -129,19 +129,19 @@ export default function Certifications() {
                     </div>
 
                     {/* ICON */}
-                    <div className="relative z-10 flex items-start justify-between mb-6">
+                    <div className="relative z-10 flex items-start justify-between mb-4 sm:mb-6">
                       <motion.div
                         whileHover={{ scale: 1.2, rotate: 360 }}
-                        className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-red-400"
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-red-400"
                       >
-                        <Award className="h-6 w-6" />
+                        <Award className="h-5 w-5 sm:h-6 sm:w-6" />
                       </motion.div>
 
-                      <ExternalLink className="h-4 w-4 text-white/30 group-hover/card:text-red-400 transition" />
+                      <ExternalLink className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white/30 group-hover/card:text-red-400 transition" />
                     </div>
 
                     {/* TITLE */}
-                    <h3 className="relative z-10 text-lg font-semibold leading-tight flex-grow">
+                    <h3 className="relative z-10 text-base sm:text-lg font-semibold leading-tight flex-grow">
                       {cert.title}
                     </h3>
 

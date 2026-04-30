@@ -12,7 +12,7 @@ export default function Experience() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-20">
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-20">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -36,14 +36,14 @@ export default function Experience() {
           {/* Vertical line */}
           <div className="absolute left-3 md:left-1/2 transform md:-translate-x-1/2 w-[2px] h-full bg-white/10" />
 
-          <div className="space-y-10 sm:space-y-16">
+          <div className="space-y-9 sm:space-y-16">
             {CV_DATA.experience.map((exp, index) => (
               <motion.div
                 key={exp.role}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.15 }}
-                className={`relative flex flex-col md:flex-row items-start md:items-center ${
+                className={`relative flex flex-col md:flex-row items-start md:items-center pl-10 sm:pl-12 md:pl-0 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
@@ -56,7 +56,7 @@ export default function Experience() {
                 </div>
 
                 {/* CARD */}
-                <div className="w-full md:w-[45%] ml-10 sm:ml-12 md:ml-0">
+                <div className="w-full md:w-[45%] ml-0">
 
                   <div className="relative p-4 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md 
                     hover:bg-red-500/18 transition-all duration-300 group">
