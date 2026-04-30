@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from './ThemeContext';
 import { Button } from '../../components/ui/button';
@@ -34,7 +34,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isOpen
           ? 'bg-black/95 backdrop-blur-xl shadow-lg border-b border-white/10'
           : scrolled
@@ -101,46 +101,44 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
-      <AnimatePresence mode="wait">
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-50 md:hidden bg-black/95 backdrop-blur-xl overflow-x-hidden"
+      {/* MOBILE MENU: always mounted, visibility toggled via opacity & pointer-events */}
+      <motion.div
+        aria-hidden={!isOpen}
+        initial={false}
+        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed inset-0 md:hidden bg-black/95 backdrop-blur-xl overflow-x-hidden transition-opacity duration-200 ${
+          isOpen ? 'opacity-100 pointer-events-auto z-50' : 'opacity-0 pointer-events-none z-50'
+        }`}
+      >
+        <div className="h-[100dvh] overflow-y-auto overscroll-contain px-6 pt-24 pb-10">
+          <button
+            aria-label="Close mobile menu"
+            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center active:scale-95 transition"
           >
-            <div className="h-[100dvh] overflow-y-auto overscroll-contain px-6 pt-24 pb-10">
-              <button
-                aria-label="Close mobile menu"
-                onClick={() => setIsOpen(false)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center active:scale-95 transition"
-              >
-                <X className="h-5 w-5" />
-              </button>
+            <X className="h-5 w-5" />
+          </button>
 
-              <nav className="min-h-full flex flex-col items-center justify-center">
-                <div className="w-full max-w-xs flex flex-col items-center gap-4">
-                  {navItems.map((item, i) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.05 }}
-                      className="w-full text-center text-lg font-semibold text-emerald-100 py-4 px-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-red-500/15 hover:text-red-300 transition"
-                    >
-                      {item.name}
-                    </motion.a>
-                  ))}
-                </div>
-              </nav>
+          <nav className="min-h-full flex flex-col items-center justify-center">
+            <div className="w-full max-w-xs flex flex-col items-center gap-4">
+              {navItems.map((item, i) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  initial={false}
+                  animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                  transition={{ delay: isOpen ? i * 0.05 : 0 }}
+                  className="w-full text-center text-lg font-semibold text-white py-4 px-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-red-500/15 hover:text-red-300 transition"
+                >
+                  {item.name}
+                </motion.a>
+              ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </nav>
+        </div>
+      </motion.div>
     </nav>
   );
 }
