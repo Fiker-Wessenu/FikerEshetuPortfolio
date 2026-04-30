@@ -36,8 +36,8 @@ export default function Skills() {
         <Tabs defaultValue="programming" className="w-full max-w-5xl mx-auto">
 
           {/* TAB LIST */}
-          <div className="flex justify-center mb-10 sm:mb-16 overflow-x-auto no-scrollbar">
-            <TabsList className="bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1.5 flex flex-wrap justify-center gap-2 shadow-lg shadow-black/20">
+          <div className="flex justify-center mb-10 sm:mb-16">
+            <TabsList className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl sm:rounded-full p-1.5 flex flex-wrap justify-center gap-2 shadow-lg shadow-black/20">
               {Object.keys(CV_DATA.skills).map((category) => (
                 <TabsTrigger
                   key={category}
@@ -56,7 +56,7 @@ export default function Skills() {
           {/* TAB CONTENT */}
           {Object.entries(CV_DATA.skills).map(([category, skills]) => (
             <TabsContent key={category} value={category}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
 
                 {skills.map((skill, index) => (
                   <motion.div
@@ -67,7 +67,7 @@ export default function Skills() {
                     transition={{ delay: index * 0.05 }}
                     className="group"
                   >
-                    <div className="relative p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md
+                    <div className="relative p-4 sm:p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md
                       flex flex-col items-center justify-center text-center min-h-[148px]
                       hover:bg-red-500/18 hover:-translate-y-1 transition-all duration-300 overflow-hidden border-red-500/35 bg-red-500/12">
 

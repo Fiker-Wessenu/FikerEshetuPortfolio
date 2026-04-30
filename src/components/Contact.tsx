@@ -64,7 +64,7 @@ export default function Contact() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -115,7 +115,7 @@ export default function Contact() {
                   }
                 }
               }}
-              className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
             >
               {("Let's Work " ).split('').map((char, i) => (
                 <motion.span
@@ -214,7 +214,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative p-5 sm:p-8 lg:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+            className="relative p-5 sm:p-8 md:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
           >
             {/* Glow effect */}
             <div className="absolute inset-0 rounded-3xl opacity-0 hover:opacity-100 transition duration-500 bg-red-500/5 blur-xl" />

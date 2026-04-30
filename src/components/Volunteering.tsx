@@ -33,7 +33,7 @@ export default function Volunteering() {
         {/* TIMELINE */}
         <div className="relative max-w-5xl mx-auto">
           {/* Vertical line */}
-          <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-[2px] h-full bg-white/10" />
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-[2px] h-full bg-white/10" />
 
           <div className="space-y-12 sm:space-y-16">
             {CV_DATA.volunteering.map((item, index) => (
@@ -43,12 +43,12 @@ export default function Volunteering() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className={`relative flex flex-col sm:flex-row items-start sm:items-center ${
-                  index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
+                className={`relative flex flex-col md:flex-row items-start md:items-center ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* ICON */}
-                <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 
+                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 
                   w-10 h-10 rounded-full bg-black border border-white/10 
                   flex items-center justify-center z-20">
                   {index === 0 ? (
@@ -59,7 +59,7 @@ export default function Volunteering() {
                 </div>
 
                 {/* CARD */}
-                <div className="w-full sm:w-[45%] ml-12 sm:ml-0">
+                <div className="w-full md:w-[45%] ml-12 md:ml-0">
                   <div className="relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md 
                     hover:bg-red-500/18 transition-all duration-300 group">
                     {/* Glow */}

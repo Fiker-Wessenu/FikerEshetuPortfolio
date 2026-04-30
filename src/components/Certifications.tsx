@@ -56,11 +56,9 @@ export default function Certifications() {
         </div>
 
         {/* HORIZONTAL SCROLL */}
-        <div className="overflow-x-auto no-scrollbar">
+        <div className="overflow-x-hidden">
           <motion.div
-            className="flex gap-4 sm:gap-8 px-2 pb-2 cursor-grab active:cursor-grabbing"
-            drag="x"
-            dragConstraints={{ left: -1000, right: 0 }}
+            className="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-4 sm:gap-8 px-2 pb-2"
           >
             {CV_DATA.certifications.map((cert, index) => {
               const gradient = colors[index % colors.length];
@@ -68,7 +66,7 @@ export default function Certifications() {
               return (
                 <motion.div
                   key={cert.title}
-                  className="min-w-[240px] sm:min-w-[320px]"
+                  className="w-full md:w-[320px]"
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{
                     opacity: 1,

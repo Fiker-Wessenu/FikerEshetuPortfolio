@@ -34,7 +34,7 @@ export default function Education() {
         {/* TIMELINE */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 sm:left-1/2 top-0 h-full w-[2px] bg-white/10 sm:-translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 h-full w-[2px] bg-white/10 md:-translate-x-1/2" />
 
           <div className="space-y-12 sm:space-y-16">
             {CV_DATA.education.map((edu, index) => {
@@ -50,11 +50,11 @@ export default function Education() {
                   className={`relative flex w-full ${isLeft ? 'justify-start' : 'justify-end'}`}
                 >
                   {/* Node */}
-                  <div className="absolute left-4 sm:left-1/2 top-6 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-red-500 shadow-[0_0_15px_rgba(255,0,0,0.7)] z-20" />
+                  <div className="absolute left-4 md:left-1/2 top-6 md:-translate-x-1/2 w-4 h-4 rounded-full bg-red-500 shadow-[0_0_15px_rgba(255,0,0,0.7)] z-20" />
 
                   {/* Card */}
                   <div
-                    className={`w-full sm:w-[92%] md:w-[45%] group relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300 ${
+                    className={`w-full md:w-[45%] group relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300 ${
                       isLeft ? 'mr-auto' : 'ml-auto'
                     }`}
                   >
