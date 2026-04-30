@@ -35,9 +35,11 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 dark:bg-black/85 backdrop-blur-xl shadow-sm border-b border-black/5 dark:border-white/10'
-          : 'bg-white/70 dark:bg-black/70 backdrop-blur-xl border-b border-black/5 dark:border-white/10'
+        isOpen
+          ? 'bg-black/95 backdrop-blur-xl shadow-lg border-b border-white/10'
+          : scrolled
+          ? 'bg-white/95 dark:bg-black/90 backdrop-blur-xl shadow-sm border-b border-black/5 dark:border-white/10'
+          : 'bg-white dark:bg-black backdrop-blur-xl border-b border-black/5 dark:border-white/10'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -62,7 +64,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-emerald-900/80 dark:text-emerald-300/80 hover:text-emerald-900 dark:hover:text-emerald-200 transition"
+                className="text-sm font-medium text-emerald-900/80 dark:text-emerald-300/80 hover:text-red-500 transition"
               >
                 {item.name}
               </a>
@@ -88,7 +90,9 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`md:hidden w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all duration-200 text-white ${
-                isOpen ? 'bg-red-700 hover:bg-red-800' : 'bg-red-500 hover:bg-red-600'
+                isOpen
+                  ? 'bg-red-700 scale-110 shadow-lg shadow-red-500/40'
+                  : 'bg-red-500 hover:bg-red-600'
               }`}
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -101,15 +105,18 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-40 md:hidden">
+            
+            {/* BACKDROP */}
             <motion.button
               aria-label="Close mobile menu"
               onClick={() => setIsOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/45"
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             />
 
+            {/* SIDE PANEL */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -117,7 +124,6 @@ export default function Navbar() {
               transition={{ type: 'spring', stiffness: 320, damping: 30 }}
               className="absolute inset-y-0 right-0 w-[85vw] max-w-sm bg-white dark:bg-zinc-950 shadow-2xl border-l border-black/10 dark:border-white/10 flex flex-col px-5 pt-20 pb-8"
             >
-              {/* NAV ITEMS */}
               <div className="flex flex-col gap-3">
                 {navItems.map((item, i) => (
                   <motion.a
@@ -127,7 +133,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className="text-base font-semibold text-emerald-900 dark:text-emerald-200 py-3 px-3 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition"
+                    className="text-base font-semibold text-emerald-900 dark:text-emerald-200 py-3 px-3 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-red-500/10 hover:text-red-500 transition"
                   >
                     {item.name}
                   </motion.a>
