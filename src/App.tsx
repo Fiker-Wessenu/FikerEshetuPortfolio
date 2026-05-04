@@ -42,7 +42,7 @@ export default function App() {
     <ThemeProvider>
       <div className="min-h-screen overflow-x-hidden bg-black text-white transition-colors duration-300">
         <Navbar />
-        <main>
+        <main className="pt-16">
           <SectionTransition>
             <Hero />
           </SectionTransition>
