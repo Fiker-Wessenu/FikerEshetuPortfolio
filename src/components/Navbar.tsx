@@ -22,24 +22,24 @@ export default function Navbar() {
   const [logoMissing, setLogoMissing] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-  // Scroll detection
+  // Detect scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
+  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }, [isOpen]);
 
-  // Smooth scroll function with offset
+  // Scroll function
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const yOffset = -80; // navbar height
+    const yOffset = -80;
     const y =
       el.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
@@ -55,7 +55,7 @@ export default function Navbar() {
 
     setTimeout(() => {
       scrollToSection(id);
-    }, 300); // matches animation duration
+    }, 350); // wait for menu animation
   };
 
   return (
@@ -97,10 +97,10 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* RIGHT CONTROLS */}
+          {/* RIGHT SIDE */}
           <div className="flex items-center gap-2">
 
-            {/* THEME */}
+            {/* THEME TOGGLE */}
             <Button
               variant="ghost"
               size="icon"
@@ -115,7 +115,7 @@ export default function Navbar() {
             {/* MOBILE MENU BUTTON */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all duration-200 text-white ${
+              className={`md:hidden w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 text-white ${
                 isOpen
                   ? 'bg-red-700 scale-110 shadow-lg shadow-red-500/40'
                   : 'bg-red-500 hover:bg-red-600'
@@ -137,7 +137,9 @@ export default function Navbar() {
         animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.25 }}
         className={`fixed inset-0 z-50 md:hidden bg-black/95 backdrop-blur-xl ${
-          isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+          isOpen
+            ? 'pointer-events-auto visible'
+            : 'pointer-events-none invisible'
         }`}
       >
         <div className="h-full flex flex-col items-center justify-center px-6 space-y-6">
