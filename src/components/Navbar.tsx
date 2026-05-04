@@ -51,7 +51,10 @@ export default function Navbar() {
 
   // Handle mobile click
   const handleNavClick = (id: string) => {
-    scrollToSection(id);
+    setIsOpen(false);
+    setTimeout(() => {
+      scrollToSection(id);
+    }, 200);
   };
 
   return (
