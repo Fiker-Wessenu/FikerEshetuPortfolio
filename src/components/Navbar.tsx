@@ -18,16 +18,28 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [logoMissing, setLogoMissing] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const { theme, toggleTheme } = useTheme();
 
-  // Detect scroll
+  // 🔥 AUTO HIDE NAVBAR
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setShowNavbar(false); // scrolling down
+      } else {
+        setShowNavbar(true); // scrolling up
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -39,7 +51,7 @@ export default function Navbar() {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const yOffset = -80;
+    const yOffset = -70;
     const y =
       el.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
@@ -49,7 +61,6 @@ export default function Navbar() {
     });
   };
 
-  // Handle mobile click
   const handleNavClick = (id: string) => {
     setIsOpen(false);
     setTimeout(() => {
@@ -58,7 +69,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-black">
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: showNavbar ? 0 : -80 }}
+      transition={{ duration: 0.3 }}
+      className="fixed top-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-md border-b border-red-500/20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
 
@@ -76,21 +92,21 @@ export default function Navbar() {
           </div>
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex items-center gap-4 sm:gap-6 justify-center flex-1 mx-4">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="text-xs sm:text-sm font-medium text-red-500 hover:text-red-400 transition whitespace-nowrap"
+                className="text-sm font-medium text-red-500 hover:text-red-400 transition"
               >
                 {item.name}
               </button>
             ))}
           </div>
 
-          {/* RIGHT CONTROLS */}
+          {/* RIGHT */}
           <div className="flex items-center gap-2">
-            {/* THEME TOGGLE */}
+
             <Button
               variant="ghost"
               size="icon"
@@ -102,16 +118,12 @@ export default function Navbar() {
                 : <Sun className="h-4 w-4" />}
             </Button>
 
-            {/* MOBILE MENU BUTTON */}
+            {/* MOBILE BUTTON */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-red-500"
+              className="md:hidden w-10 h-10 flex items-center justify-center text-red-500"
             >
-              {isOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              {isOpen ? <X /> : <Menu />}
             </button>
           </div>
         </div>
@@ -120,24 +132,22 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       <motion.div
         initial={false}
-        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+        animate={isOpen ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }}
         transition={{ duration: 0.2 }}
-        className={`md:hidden bg-black border-t border-red-500/30 ${
-          isOpen ? 'pointer-events-auto' : 'pointer-events-none'
-        }`}
+        className="md:hidden overflow-hidden bg-black border-t border-red-500/30"
       >
-        <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
+        <div className="px-4 py-4 space-y-2">
           {navItems.map((item) => (
             <button
               key={item.name}
               onClick={() => handleNavClick(item.id)}
-              className="w-full text-left px-4 py-2 text-sm font-medium text-red-500 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition"
+              className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-500/10 rounded-lg"
             >
               {item.name}
             </button>
           ))}
         </div>
       </motion.div>
-    </nav>
+    </motion.nav>
   );
 }
