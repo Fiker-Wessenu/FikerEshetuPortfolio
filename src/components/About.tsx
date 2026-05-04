@@ -11,8 +11,11 @@ const iconMap: Record<string, any> = {
 
 export default function About() {
   return (
-    <section id="about" className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
-      {/* Background glow to match hero */}
+    <section
+      id="about"
+      className="section-fx relative py-20 sm:py-24 lg:py-32 bg-black text-white overflow-hidden scroll-mt-20"
+    >
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
@@ -51,7 +54,7 @@ export default function About() {
                 transition={{ delay: index * 0.15 }}
                 className="group relative p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md hover:bg-red-500/18 transition-all duration-300"
               >
-                {/* Glow effect */}
+                {/* Glow */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-red-500/20 blur-xl" />
 
                 <div className="relative z-10 flex flex-col items-center text-center">
@@ -72,7 +75,7 @@ export default function About() {
           })}
         </div>
 
-        {/* EXTRA FEATURES */}
+        {/* EXTRA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
 
           {/* SKILLS */}
@@ -82,7 +85,10 @@ export default function About() {
             viewport={{ once: true }}
             className="p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md"
           >
-            <h3 className="text-lg font-semibold text-red-400 mb-4">Core Skills</h3>
+            <h3 className="text-lg font-semibold text-red-400 mb-4">
+              Core Skills
+            </h3>
+
             <div className="space-y-3 text-sm">
               {['JavaScript', 'React', 'Python', 'Data Science', 'Machine Learning'].map((skill, i) => (
                 <div key={i} className="flex justify-between">
@@ -100,7 +106,10 @@ export default function About() {
             viewport={{ once: true }}
             className="p-5 sm:p-6 rounded-2xl border border-red-500/35 bg-red-500/12 backdrop-blur-md"
           >
-            <h3 className="text-lg font-semibold text-red-400 mb-4">Quick Facts</h3>
+            <h3 className="text-lg font-semibold text-red-400 mb-4">
+              Quick Facts
+            </h3>
+
             <ul className="space-y-3 text-sm text-white/70">
               <li>🚀 Passionate about AI & Software Development</li>
               <li>💡 Love solving real-world problems</li>

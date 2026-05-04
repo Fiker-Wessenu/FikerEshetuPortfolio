@@ -6,14 +6,14 @@ import { Button } from '../../components/ui/button';
 import { CV_DATA } from '../constants';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Education', href: '#education' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Awards', href: '#awards' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', id: 'home' },
+  { name: 'About', id: 'about' },
+  { name: 'Education', id: 'education' },
+  { name: 'Projects', id: 'projects' },
+  { name: 'Skills', id: 'skills' },
+  { name: 'Experience', id: 'experience' },
+  { name: 'Awards', id: 'awards' },
+  { name: 'Contact', id: 'contact' },
 ];
 
 export default function Navbar() {
@@ -22,15 +22,41 @@ export default function Navbar() {
   const [logoMissing, setLogoMissing] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when menu is open
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   }, [isOpen]);
+
+  // Smooth scroll function with offset
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const yOffset = -80; // navbar height
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth',
+    });
+  };
+
+  // Handle mobile click (close first, then scroll)
+  const handleNavClick = (id: string) => {
+    setIsOpen(false);
+
+    setTimeout(() => {
+      scrollToSection(id);
+    }, 300); // matches animation duration
+  };
 
   return (
     <nav
@@ -44,7 +70,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          
+
           {/* LOGO */}
           <div className="flex items-center gap-2 text-lg font-semibold text-emerald-900 dark:text-emerald-300">
             {!logoMissing && (
@@ -61,19 +87,19 @@ export default function Navbar() {
           {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
+                onClick={() => scrollToSection(item.id)}
                 className="text-sm font-medium text-emerald-900/80 dark:text-emerald-300/80 hover:text-red-500 transition"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
 
           {/* RIGHT CONTROLS */}
           <div className="flex items-center gap-2">
-            
+
             {/* THEME */}
             <Button
               variant="ghost"
@@ -95,21 +121,26 @@ export default function Navbar() {
                   : 'bg-red-500 hover:bg-red-600'
               }`}
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* ✅ FIXED MOBILE MENU */}
+      {/* MOBILE MENU */}
       <motion.div
         initial={false}
-        animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
+        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.25 }}
-        className={`fixed inset-0 z-50 md:hidden bg-black/95 backdrop-blur-xl
-        ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+        className={`fixed inset-0 z-50 md:hidden bg-black/95 backdrop-blur-xl ${
+          isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+        }`}
       >
-        <div className="h-full flex flex-col items-center justify-center px-6 space-y-6 overflow-y-auto">
+        <div className="h-full flex flex-col items-center justify-center px-6 space-y-6">
 
           {/* CLOSE BUTTON */}
           <button
@@ -121,16 +152,14 @@ export default function Navbar() {
 
           {/* MENU ITEMS */}
           {navItems.map((item) => (
-            <a
+            <button
               key={item.name}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={() => handleNavClick(item.id)}
               className="w-full max-w-xs text-center text-lg font-semibold text-white py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-red-500/20 transition"
             >
               {item.name}
-            </a>
+            </button>
           ))}
-
         </div>
       </motion.div>
     </nav>
