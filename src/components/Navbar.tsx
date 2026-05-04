@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useTheme } from './ThemeContext';
 import { Button } from '../../components/ui/button';
 import { CV_DATA } from '../constants';
@@ -16,6 +17,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [logoMissing, setLogoMissing] = useState(false);
   const { theme, toggleTheme } = useTheme();
@@ -26,6 +28,11 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }, [isOpen]);
 
   // Scroll function
   const scrollToSection = (id: string) => {
@@ -42,13 +49,18 @@ export default function Navbar() {
     });
   };
 
+  // Handle mobile click
+  const handleNavClick = (id: string) => {
+    scrollToSection(id);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
 
           {/* LOGO */}
-          <div className="flex items-center gap-2 text-lg font-semibold text-emerald-900 dark:text-emerald-300">
+          <div className="flex items-center gap-2 text-lg font-semibold text-red-500">
             {!logoMissing && (
               <img
                 src={CV_DATA.logoPath}
@@ -60,8 +72,8 @@ export default function Navbar() {
             <span className="hidden sm:block">Fiker</span>
           </div>
 
-          {/* MENU ITEMS */}
-          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center flex-1 mx-4">
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex items-center gap-4 sm:gap-6 justify-center flex-1 mx-4">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -73,19 +85,56 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* THEME TOGGLE */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="rounded-full w-9 h-9"
-          >
-            {theme === 'light'
-              ? <Moon className="h-4 w-4" />
-              : <Sun className="h-4 w-4" />}
-          </Button>
+          {/* RIGHT CONTROLS */}
+          <div className="flex items-center gap-2">
+            {/* THEME TOGGLE */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="rounded-full w-9 h-9"
+            >
+              {theme === 'light'
+                ? <Moon className="h-4 w-4" />
+                : <Sun className="h-4 w-4" />}
+            </Button>
+
+            {/* MOBILE MENU BUTTON */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-red-500"
+            >
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* MOBILE MENU */}
+      <motion.div
+        initial={false}
+        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+        transition={{ duration: 0.2 }}
+        className={`md:hidden bg-black border-t border-red-500/30 ${
+          isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => handleNavClick(item.id)}
+              className="w-full text-left px-4 py-2 text-sm font-medium text-red-500 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition"
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+      </motion.div>
     </nav>
   );
 }
